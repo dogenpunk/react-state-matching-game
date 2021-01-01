@@ -8,13 +8,13 @@ import { shallow } from 'enzyme'
 describe('Tile', () => {
 
   it('Dynamically changes the tile color @dynamic-tile-color', () => {
-    // Uses the default background color when selected and matched are false 
+    // Uses the default background color when selected and matched are false
     const [tile1, tile2] = createTiles(2)
     let wrapper = shallow(<Tile {...tile1} />)
 
     expect(wrapper.props().style, 'Did you pass an inline style to the tile?').toEqual(null)
 
-    // Uses the configs background color when selected is true 
+    // Uses the configs background color when selected is true
     const [tile3, tile4] = createTiles(2)
     tile3.selected = true
     wrapper = shallow(<Tile {...tile3} />)
@@ -23,7 +23,7 @@ describe('Tile', () => {
     expect(typeof style, 'Did you pass an inline style to the tile?').toEqual('object')
     expect(style.backgroundColor, 'Did you set the right property in your style?').toContain('#')
 
-    // Uses the configs background color when matched is true 
+    // Uses the configs background color when matched is true
     const [tile5, tile6] = createTiles(2)
     tile5.matched = true
     wrapper = shallow(<Tile {...tile5} />)
@@ -58,5 +58,3 @@ describe('Tile', () => {
   })
 
 })
-
-
