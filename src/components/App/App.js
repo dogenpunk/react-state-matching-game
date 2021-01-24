@@ -56,6 +56,15 @@ class App extends Component{
         })
     }
 
+    handleNumTileChange(num)
+    {
+        this.setState({
+            numTiles: num,
+            playing: false,
+            tiles: []
+        })
+    }
+
     startGame(numTiles)
     {
         this.setState(state => ({
@@ -77,6 +86,7 @@ class App extends Component{
                 </header>
                 <OptionsPanel playing={this.state.playing}
                               numTiles={this.state.numTiles}
+                              handleNumTileChange={this.handleNumTileChange}
                               startGame={this.startGame}
                 />
                 <Board numTiles={this.state.numTiles}
